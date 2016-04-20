@@ -18,9 +18,8 @@ class ArticleController < ApplicationController
 	 
 	  @article.title=param[:title]	
 	  @article.body=param[:body]  	
-	  puts "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx"
 	  puts param[:id].size
-	  
+
 	  if param[:id].size>0
 	  	update(@article.title,@article.body)
 
@@ -64,10 +63,7 @@ class ArticleController < ApplicationController
 
     def update(title,body)
   	@article=Article.find(param[:id])
-
-  	puts "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx"
-  	puts @article
-  	puts "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx"
+  	
     
   	@article.title=title
   	@article.body=body
