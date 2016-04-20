@@ -54,33 +54,39 @@ class ArticleController < ApplicationController
 
 	  end
   end
-  	def get_article
-  		@article=Article.find(params[:id])
-  		respond_to do |format|
-  			format.json {render json: @article }
-  		end
+
+  def get_article
+  	@article=Article.find(params[:id])
+  	respond_to do |format|
+  		format.json {render json: @article }
   	end
-
-    def update(title,body)
-  	@article=Article.find(param[:id])
-  	
-    
-  	@article.title=title
-  	@article.body=body
-  	 respond_to do |format|
-		if(@article.save)
-		  	@Articles=Article.all
-		  	format.html {redirect_to :controller=>:article, :action=>:index}
-		  	#Formato JSON para enviar la vista parcial al archivo articulo.js.erb
-	        format.json {render json: {html:render_to_string(:action=>'_list.html.erb', :layout=> false)  } }
-	    else
-	    	format.html {redirect_to :controller=>:article, :action=>:index}
-		  	#Formato JSON para enviar la vista parcial al archivo articulo.js.erb
-	        format.json {render json: {html:render_to_string(:action=>'_list.html.erb', :layout=> false)  } }
-	    end
-
-	  end
   end
+
+
+  def update(title,body)
+
+  	   @article=Article.find(param[:id])
+   
+       @article.title=title
+  	   @article.body=body
+   
+  	    respond_to do |format|
+	   	   if(@article.save)
+	   	  	   @Articles=Article.all
+	   	  	   format.html {redirect_to :controller=>:article, :action=>:index}
+      
+	   	  	   #Formato JSON para enviar la vista parcial al archivo articulo.js.erb
+	           format.json {render json: {html:render_to_string(:action=>'_list.html.erb', :layout=> false)  } }
+	       else
+	       	   format.html {redirect_to :controller=>:article, :action=>:index}
+      
+	   	  	   #Formato JSON para enviar la vista parcial al archivo articulo.js.erb
+	           format.json {render json: {html:render_to_string(:action=>'_list.html.erb', :layout=> false)  } }
+	       end
+   
+	    end
+  end
+
 
   def param
   	params.require(:articles).permit(:id,:title,:body)

@@ -14,6 +14,9 @@ gem 'coffee-rails', '~> 4.0.0'
 # See https://github.com/sstephenson/execjs#readme for more supported runtimes
 # gem 'therubyracer',  platforms: :ruby
 
+#Gem para mostrar el tiempo transcurrido desde la creacion de un registro
+gem 'rails-timeago'
+
 gem 'bootstrap-sass'
 
 gem 'devise'
