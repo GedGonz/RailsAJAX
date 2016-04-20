@@ -1,0 +1,16 @@
+
+<!--Se agrega el atributo remote:true para que se envien por AJAX y el atributo html{id,data-type:json} para enviar en formato JSON -->
+<%=form_for(:articles,remote: true,:url=>{:action=>:create},html:{id:"form-article",:'data-type'=> 'json'}) do |f|%>
+
+	<div class="form-group">
+	    <%=f.hidden_field(:id,id:"id")%>
+		<%=f.text_field(:title,id:"txttitle",class:"form-control",placeholder:"Title")%>
+		<br>
+		<%=f.text_field(:body,id:"txtbody",class:"form-control",placeholder:"Body")%>
+	</div>
+
+	<div class="form-group">
+		<%=f.submit(:save,id:"btnsave",class:"btn btn-primary")%>
+
+	</div>
+<%end%>

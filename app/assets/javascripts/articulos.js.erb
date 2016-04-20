@@ -1,0 +1,78 @@
+		$(document).ready(function(){
+		$('#modal').click(function(){
+			clear_field();
+		});
+
+		});
+
+
+		//Ajax New Articulo
+		$(document).on("ajax:success","form#form-article", function(e, data, status, xhr){
+			console.log(data);
+			clear_field();
+			$('#myModal').modal('hide');
+			
+			//JSON que se recupero del controlador articulo
+			//se agrega en DIV con id="list"
+			$('#list').html(data.html);
+			
+			
+		}).on("ajax:error",function(ev,data){
+			console.log("eRROR");
+		});
+
+		//Ajax Delete Articulo
+		$(document).on("ajax:success","#btndelete", function(e, data, status, xhr){
+			console.log(data);
+			$('#list').html(data.html);
+			clear_field();
+			
+		}).on("ajax:error",function(ev,data){
+			console.log("eRROR");
+		});
+		
+
+
+		//Ajax Update Articulo
+		$(document).on("ajax:success","#btnmodal", function(e, data, status, xhr){
+			console.log(data);
+
+			$('#myModal').modal('show');
+			$('#id').val(data.id);
+			$('#txttitle').val(data.title);
+			$('#txtbody').val(data.body);
+			//$("#btnupdate").attr("href", '/article/update/'+data.id);
+			$(document).on("ajax:success","#btnupdate", function(e, data, status, xhr){
+				console.log(data);
+				clear_field();
+				$('#list').html(data.html);
+				
+				
+			}).on("ajax:error",function(ev,data){
+				console.log("eRROR");
+				clear_field();
+			});
+			
+		})
+
+		function clear_field()
+		{
+			$('#id').val('');
+			$('#txttitle').val('');
+			$('#txtbody').val('');
+			console.log('Cleaner Filed!!');
+		}
+
+
+
+
+
+
+
+
+
+
+
+
+
+   

@@ -1,0 +1,25 @@
+	<div class="row">
+	<%@Articles.each do |a|%>
+		<div class="col-md-4">
+			<div class="panel panel-default">
+				<div class="panel-heading">
+					<h4><%=a.title%></h4>	
+				</div>
+				<div class="panel-body">
+					<%=a.body%>
+				</div>
+				<div class="modal-footer">
+					<!--Link para llamar la accion delete, enviando como parametro el id 
+						Se agrego el mismo atributo remote:true para usar ajax como respuesta
+						y se agrego el atributo data-typ='json' para que enviara la respuesta en 
+						formato JSON
+					-->
+					<%= link_to 'Delete',  { action: :delete, id: a.id }, method: :delete, data: { confirm: 'Esta Seguro de Eliminarlo?' },remote: true,class:"btn btn-danger",id:"btndelete",:'data-type'=> 'json'%>
+
+					<%= link_to 'Update',  { action: :get_article, id: a.id }, method: :get, remote: true,class:"btn btn-primary",id:"btnmodal",:'data-type'=> 'json'%>
+		      	</div>
+			</div>
+		</div>
+	<%end%>
+
+	</div>
