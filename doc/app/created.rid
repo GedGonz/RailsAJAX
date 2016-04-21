@@ -1,0 +1,11 @@
+Thu, 21 Apr 2016 10:22:36 -0600
+README.rdoc	Thu, 14 Apr 2016 10:45:23 -0600
+app/controllers/application_controller.rb	Thu, 14 Apr 2016 13:13:50 -0600
+app/controllers/article_controller.rb	Thu, 21 Apr 2016 09:49:50 -0600
+app/controllers/home_controller.rb	Fri, 15 Apr 2016 13:10:48 -0600
+app/helpers/application_helper.rb	Thu, 14 Apr 2016 10:45:23 -0600
+app/helpers/article_helper.rb	Mon, 18 Apr 2016 10:17:58 -0600
+app/helpers/home_helper.rb	Thu, 14 Apr 2016 10:49:16 -0600
+app/models/article.rb	Thu, 14 Apr 2016 16:19:12 -0600
+app/models/coment.rb	Thu, 14 Apr 2016 16:20:35 -0600
+app/models/user.rb	Thu, 14 Apr 2016 10:54:22 -0600

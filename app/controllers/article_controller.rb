@@ -1,19 +1,22 @@
 class ArticleController < ApplicationController
+  require 'Persona'
+
   def index
+
   	@Articles=Article.all
-  	@articles=Article.new
+  	
   end
 
   def new
   	@article=Article.new
   end
 
-
   def listall
   	render "index"
   end
 
   def create
+
 	  @article=Article.new
 	 
 	  @article.title=param[:title]	
@@ -56,6 +59,7 @@ class ArticleController < ApplicationController
   end
 
   def get_article
+
   	@article=Article.find(params[:id])
   	respond_to do |format|
   		format.json {render json: @article }
